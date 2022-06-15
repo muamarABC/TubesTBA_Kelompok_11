@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!-- <script defer src="path/to/pyscript.js"></script> -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<py-env>
+    - paths: 
+        - /Lexical_Analyzer11.py 
+        - /Parser11.py
+</py-env>
+
+<body>
+    <py-script>
+        from Lexical_Analyzer11 import * 
+        from Parser11 import *
+    </py-script>
+    <div>
+        <div class="bg-[#90FA1E] h-96">
+            <div>
+                <h1 class="text-center text-2xl font-semi-bold pt-3 text-white">Telkom University</h1>
+                <h1 class="text-center text-5xl text-white font-bold pt-20 ">Tugas Besar Teori Bahasa dan Automata</h1>
+                <h1 class="text-center text-5xl text-white font-bold pt-1 ">Lexical Analyzer dan Parser</h1>
+            </div>
+            <div class="items-center mx-auto container flex justify-center mt-28">
+                <input type="text" placeholder="Masukkan Kalimat" id="inputSentence" class="w-96 h-9 rounded-md outline-none pl-5 ">
+                <button type="submit" id="submit-button" pys-onclick="analyzeLexical" class=" ml-1 bg-white h-9 w-20 rounded-md text-[#90FA1E] hover:bg-blue-200">Check</button>
+            </div>
+            <div class="ml-auto mr-auto justify-center box-border items-center h-40 mt-4 border-4 border-[#90FA1E] rounded-md" style="width: 470px;">
+                <div id="output" class="text-center mt-10"></div>
+
+                <div id="output2" class="text-center mt-5"></div>
+            </div>
+
+        </div>
+        <h1 class="text-center font-semi-bold text-2xl mt-44">Bahasa Banjar</h1>
+    </div>
+
+    <div class="container flex justify-center mx-auto mt-5">
+        <div class="flex flex-col">
+            <div class="w-full">
+                <div class="border-b border-gray-200 shadow">
+                    <table>
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-2 text-xs text-gray-500">Simbol Non Terminal</th>
+                                <th class="px-6 py-2 text-xs text-gray-500">Bahasa Indonesia</th>
+                                <th class="px-6 py-2 text-xs text-gray-500">Bahasa Banjar</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Saya</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Ulun</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Kamu</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Ikam</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Adik</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Ading</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Bapak</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Abah</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Paman</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Amang</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Ikan</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Iwak</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">NN</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Kue</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Wadai</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">VB</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Menggigit</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Maigut</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">VB</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Memakan</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Mamakan</td>
+                            </tr>
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">VB</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">Memotong</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Manatak</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white h-96 mt-6">
+        <h1 class="align-center flex justify-center mt-7 text-[#90FA1E] text-3xl font-bold ">Anggota Kelompok</h1>
+        <div class="flex mt-5 justify-center">
+            <div class="block box-content h-64 w-52 p-4 bg-white rounded-lg mt-4 shadow-lg">
+                <img src="fajar.jpeg" alt="" class="ml-10 w-32 z-30 pt-0">
+                <div class="text-center mt-5">
+                    <h1>Muamar Fajar Rahmadani</h1>
+                    <h1>1301204129</h1>
+                </div>
+            </div>
+            <div class=" block box-content h-64 w-52 p-4 bg-white rounded-lg mt-4 ml-32 shadow-lg">
+                <img src="intan.jpg" alt="" class="ml-10 w-32 z-30 pt-0">
+                <div class="text-center mt-10">
+                    <h1>Intan Fauzia Anwar</h1>
+                    <h1>1301204539</h1>
+                </div>
+            </div>
+            <div class=" block box-content h-64 w-52 p-4 bg-white rounded-lg mt-4 ml-32 shadow-lg">
+                <img src="ardi.jpeg" alt="" class="ml-10 w-32 z-30 pt-0">
+                <div class="text-center mt-5">
+                    <h1>I Wayan Ardi Satya Putra</h1>
+                    <h1>1301201397</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#90FA1E] h-12">
+        <h1 class="text-center text-white p-3"> Kelompok 11</h1>
+    </div>
+    <py-script output="output">
+        def analyzeLexical(*args, **kwargs): 
+            sentence = Element('inputSentence').element.value 
+            if lexical(sentence) == True: 
+                pyscript.write('output', f'{sentence} is valid') 
+                if parser(sentence) == True: 
+                    pyscript.write('output2', f'input string { sentence} diterima, sesuai grammar') 
+                else: 
+                    pyscript.write('output2', 'Parser Error') 
+
+            else: pyscript.write('output', 'Lexical Error')
+    </py-script>
+</body>
+
+</html>
